@@ -4,7 +4,7 @@ Cloudflare Pages 배포 후 아래 형식으로 기록합니다.
 
 | Date (KST) | Branch | Commit | Deploy ID | Deploy URL | Screenshot |
 | --- | --- | --- | --- | --- | --- |
-| 2026-07-09 09:00 | main | TBD | TBD | TBD | evidence/screenshots/TBD.png |
+| 2026-07-09 09:00 | main | cd078b51b6a4cb49ae0a2ca9c3c19a317a108254 | TBD | TBD | evidence/screenshots/TBD.png |
 
 ## 운영 메모
 
