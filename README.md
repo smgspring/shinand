@@ -33,6 +33,8 @@ npm run verify
 - Build output directory: `public`
 - Production branch: `main`
 
+상세 연결 절차는 `docs/cloudflare-pages-setup.md`를 참고합니다.
+
 ## 도메인 운영
 
 최종 도메인은 `www.shin-and.com`입니다.
