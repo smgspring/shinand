@@ -1,0 +1,14 @@
+{
+  "name": "shinand-fnb-homepage",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static corporate website for Shin&FNB, designed for Cloudflare Pages.",
+  "scripts": {
+    "dev": "python3 -m http.server 4173 -d public",
+    "hash:notices": "node scripts/hash-notices.mjs",
+    "verify": "node scripts/verify-notices.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

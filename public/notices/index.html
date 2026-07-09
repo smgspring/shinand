@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>공지사항·전자공고 | 신앤 F&amp;B</title>
+    <meta name="description" content="신앤 F&amp;B 공지사항과 전자공고를 확인합니다. 게시 기간이 종료된 공고도 아카이브에서 열람할 수 있습니다.">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">본문 바로가기</a>
+    <header class="site-header solid" data-header>
+      <a class="brand" href="/" aria-label="신앤 F&amp;B 홈">
+        <span class="brand-mark">S&amp;</span>
+        <span>
+          <strong>신앤 F&amp;B</strong>
+          <small>Cafe Venture &amp; Operation</small>
+        </span>
+      </a>
+      <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="site-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="sr-only">메뉴 열기</span>
+      </button>
+      <nav class="site-nav" id="site-menu" data-menu>
+        <a href="/#about">회사소개</a>
+        <a href="/#services">서비스</a>
+        <a href="/notices/" aria-current="page">공지사항·전자공고</a>
+        <a href="/#contact">상담문의</a>
+      </nav>
+    </header>
+
+    <main id="main" class="subpage">
+      <section class="page-hero">
+        <div class="container page-hero-inner">
+          <p class="eyebrow">Notice &amp; Electronic Announcement</p>
+          <h1>공지사항·전자공고</h1>
+          <p>진행 중인 공고와 종료된 공고를 모두 보관합니다. 상세 페이지에서 게시 기간, 원문 PDF, 검증 해시를 확인할 수 있습니다.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="notice-toolbar" aria-label="공지 필터">
+            <button class="filter-button active" type="button" data-filter="all">전체</button>
+            <button class="filter-button" type="button" data-filter="공지사항">공지사항</button>
+            <button class="filter-button" type="button" data-filter="전자공고">전자공고</button>
+            <button class="filter-button" type="button" data-filter="active">게시중</button>
+            <button class="filter-button" type="button" data-filter="ended">게시종료</button>
+          </div>
+          <div class="notice-list" data-notice-list></div>
+        </div>
+      </section>
+
+      <section class="section section-muted">
+        <div class="container proof-layout">
+          <div class="section-heading">
+            <p class="eyebrow">Publication Evidence</p>
+            <h2>공고 게시 증빙 관리</h2>
+          </div>
+          <ul class="proof-list">
+            <li>원문 PDF와 SHA-256 해시를 함께 보관합니다.</li>
+            <li>게시 시작일과 종료일은 KST 기준 ISO 형식으로 기록합니다.</li>
+            <li>Git 커밋, Cloudflare Pages 배포 URL, 스크린샷 파일을 운영 로그에 남깁니다.</li>
+            <li>게시 기간이 종료된 공고도 상세 URL과 목록에서 계속 열람할 수 있습니다.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-layout">
+        <div>
+          <strong>신앤 F&amp;B</strong>
+          <p>카페 창업·운영 컨설팅 및 운영 대리</p>
+        </div>
+        <nav aria-label="푸터 메뉴">
+          <a href="/">홈</a>
+          <a href="/#contact">상담문의</a>
+        </nav>
+      </div>
+    </footer>
+    <script src="/assets/js/main.js" defer></script>
+  </body>
+</html>

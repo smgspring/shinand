@@ -1,0 +1,15 @@
+{
+  "generatedAt": "2026-07-09T14:24:26.000Z",
+  "files": [
+    {
+      "noticeId": "notice-2026-001",
+      "path": "/notices/2026/notice-2026-001-v1.pdf",
+      "sha256": "d446c800bd4bcfb274d5599dd67d7173efb973a1f09f14d7452302577a2d65a7"
+    },
+    {
+      "noticeId": "notice-2026-002",
+      "path": "/notices/2026/notice-2026-002-v1.pdf",
+      "sha256": "da8be972caee2a4156e25837eeba594efad6c1cdcc2cbd0f2c77c6738602e530"
+    }
+  ]
+}

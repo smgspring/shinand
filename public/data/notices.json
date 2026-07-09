@@ -1,0 +1,48 @@
+[
+  {
+    "id": "notice-2026-001",
+    "title": "신앤 F&B 홈페이지 공개 안내",
+    "category": "공지사항",
+    "status": "published",
+    "summary": "카페 창업, 상권분석, 운영 컨설팅, 운영 대리 상담을 위한 신앤 F&B 홈페이지를 공개합니다.",
+    "publishedAt": "2026-07-09T09:00:00+09:00",
+    "postingStartsAt": "2026-07-09T09:00:00+09:00",
+    "postingEndsAt": "2026-08-31T23:59:59+09:00",
+    "author": "신앤 F&B",
+    "version": 1,
+    "url": "/notices/notice-2026-001/",
+    "sourceFile": "content/notices/2026/notice-2026-001.md",
+    "attachments": [
+      {
+        "label": "공고문 PDF",
+        "path": "/notices/2026/notice-2026-001-v1.pdf",
+        "sha256": "d446c800bd4bcfb274d5599dd67d7173efb973a1f09f14d7452302577a2d65a7"
+      }
+    ],
+    "createdCommit": "",
+    "updatedCommit": ""
+  },
+  {
+    "id": "notice-2026-002",
+    "title": "전자공고 게시 및 보관 운영 기준 안내",
+    "category": "전자공고",
+    "status": "published",
+    "summary": "공고 원문, 게시 기간, 파일 해시, 배포 기록을 함께 보관하는 전자공고 운영 기준을 안내합니다.",
+    "publishedAt": "2026-07-09T09:00:00+09:00",
+    "postingStartsAt": "2026-07-09T09:00:00+09:00",
+    "postingEndsAt": "2026-12-31T23:59:59+09:00",
+    "author": "신앤 F&B",
+    "version": 1,
+    "url": "/notices/notice-2026-002/",
+    "sourceFile": "content/notices/2026/notice-2026-002.md",
+    "attachments": [
+      {
+        "label": "공고문 PDF",
+        "path": "/notices/2026/notice-2026-002-v1.pdf",
+        "sha256": "da8be972caee2a4156e25837eeba594efad6c1cdcc2cbd0f2c77c6738602e530"
+      }
+    ],
+    "createdCommit": "",
+    "updatedCommit": ""
+  }
+]
