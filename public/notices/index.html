@@ -4,19 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>공지사항·전자공고 | 신앤 F&amp;B</title>
-    <meta name="description" content="신앤 F&amp;B 공지사항과 전자공고를 확인합니다. 게시 기간이 종료된 공고도 아카이브에서 열람할 수 있습니다.">
+    <meta name="description" content="신앤 F&amp;B 공지사항과 전자공고를 확인합니다.">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/styles.css?v=20260710-process-footer">
   </head>
   <body>
     <a class="skip-link" href="#main">본문 바로가기</a>
     <header class="site-header solid" data-header>
-      <a class="brand" href="/" aria-label="신앤 F&amp;B 홈">
-        <span class="brand-mark">S&amp;</span>
-        <span>
-          <strong>신앤 F&amp;B</strong>
-          <small>Cafe Venture &amp; Operation</small>
-        </span>
+      <a class="brand brand-text-only" href="/" aria-label="주식회사 신앤 F&amp;B 홈">
+        <strong>주식회사 신앤 F&amp;B</strong>
       </a>
       <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="site-menu">
         <span></span>
@@ -37,7 +33,7 @@
         <div class="container page-hero-inner">
           <p class="eyebrow">Notice &amp; Electronic Announcement</p>
           <h1>공지사항·전자공고</h1>
-          <p>진행 중인 공고와 종료된 공고를 모두 보관합니다. 상세 페이지에서 게시 기간, 원문 PDF, 검증 해시를 확인할 수 있습니다.</p>
+          <p>신앤 F&amp;B의 주요 안내와 전자공고를 확인할 수 있습니다.</p>
         </div>
       </section>
 
@@ -53,35 +49,45 @@
           <div class="notice-list" data-notice-list></div>
         </div>
       </section>
-
-      <section class="section section-muted">
-        <div class="container proof-layout">
-          <div class="section-heading">
-            <p class="eyebrow">Publication Evidence</p>
-            <h2>공고 게시 증빙 관리</h2>
-          </div>
-          <ul class="proof-list">
-            <li>원문 PDF와 SHA-256 해시를 함께 보관합니다.</li>
-            <li>게시 시작일과 종료일은 KST 기준 ISO 형식으로 기록합니다.</li>
-            <li>Git 커밋, Cloudflare Pages 배포 URL, 스크린샷 파일을 운영 로그에 남깁니다.</li>
-            <li>게시 기간이 종료된 공고도 상세 URL과 목록에서 계속 열람할 수 있습니다.</li>
-          </ul>
-        </div>
-      </section>
     </main>
 
     <footer class="site-footer">
       <div class="container footer-layout">
-        <div>
+        <div class="footer-brand">
+          <span>주식회사</span>
           <strong>신앤 F&amp;B</strong>
-          <p>카페 창업·운영 컨설팅 및 운영 대리</p>
         </div>
-        <nav aria-label="푸터 메뉴">
-          <a href="/">홈</a>
+        <dl class="footer-info">
+          <div>
+            <dt>회사명</dt>
+            <dd>주식회사 신앤 F&amp;B</dd>
+          </div>
+          <div>
+            <dt>대표자</dt>
+            <dd>신기영</dd>
+          </div>
+          <div>
+            <dt>EMAIL</dt>
+            <dd><a href="mailto:tlsalsruaaws@gmail.com">tlsalsruaaws@gmail.com</a></dd>
+          </div>
+          <div>
+            <dt>운영시간</dt>
+            <dd>MON — FRI (9 AM ~ 6 PM)</dd>
+          </div>
+          <div>
+            <dt>주소</dt>
+            <dd>서울특별시 서초구 강남대로8길 39-26, 제2층</dd>
+          </div>
+        </dl>
+        <nav class="footer-nav" aria-label="푸터 메뉴">
+          <a href="/#about">회사소개</a>
+          <a href="/#services">서비스</a>
+          <a href="/notices/">공지사항·전자공고</a>
           <a href="/#contact">상담문의</a>
         </nav>
+        <p class="footer-copy">Copyright © 주식회사 신앤 F&amp;B. All Rights Reserved.</p>
       </div>
     </footer>
-    <script src="/assets/js/main.js" defer></script>
+    <script src="/assets/js/main.js?v=20260710-process-footer" defer></script>
   </body>
 </html>

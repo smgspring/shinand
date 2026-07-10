@@ -28,7 +28,6 @@ const noticeCard = (notice) => {
       <h3><a href="${notice.url}">${notice.title}</a></h3>
       <p>${notice.summary}</p>
       <div class="notice-card-meta">
-        <span>게시 ${formatDate(notice.postingStartsAt)} - ${formatDate(notice.postingEndsAt)}</span>
         <a class="text-link" href="${notice.url}">자세히 보기</a>
       </div>
     </article>
@@ -38,8 +37,7 @@ const noticeCard = (notice) => {
 const loadNotices = async () => {
   const targets = document.querySelectorAll("[data-home-notices], [data-feature-notices], [data-notice-list]");
   const statusTargets = document.querySelectorAll("[data-status-for]");
-  const shaTargets = document.querySelectorAll("[data-sha-for]");
-  if (!targets.length && !statusTargets.length && !shaTargets.length) return;
+  if (!targets.length && !statusTargets.length) return;
 
   const response = await fetch("/data/notices.json", { cache: "no-store" });
   const notices = await response.json();
@@ -88,11 +86,6 @@ const loadNotices = async () => {
     target.classList.toggle("ended", !isNoticeActive(notice));
   });
 
-  shaTargets.forEach((target) => {
-    const notice = sorted.find((item) => item.id === target.dataset.shaFor);
-    const sha = notice?.attachments?.[0]?.sha256;
-    if (sha) target.textContent = sha;
-  });
 };
 
 const setupHeader = () => {
@@ -157,7 +150,7 @@ const setupContactForm = () => {
       status.textContent = "메일 작성 화면을 엽니다.";
     }
 
-    const mailto = new URL("mailto:contact@shin-and.com");
+    const mailto = new URL("mailto:tlsalsruaaws@gmail.com");
     mailto.searchParams.set("subject", `[신앤 F&B 상담] ${data.get("type")} - ${data.get("name")}`);
     mailto.searchParams.set("body", body);
     window.location.href = mailto.toString();
