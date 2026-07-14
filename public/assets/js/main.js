@@ -130,30 +130,37 @@ const setupContactForm = () => {
       return;
     }
 
-    const body = [
-      "신앤 F&B 상담 의뢰",
-      "",
-      `상담 유형: ${data.get("type")}`,
-      `성함/회사명: ${data.get("name")}`,
-      `연락처: ${phone || "-"}`,
-      `이메일: ${email || "-"}`,
-      `희망 지역/매장: ${data.get("region") || "-"}`,
-      "",
-      "문의 내용:",
-      data.get("message")
-    ].join("\n");
+    const submitButton = form.querySelector('button[type="submit"]');
+    submitButton?.setAttribute("disabled", "true");
+    status.textContent = "상담 신청을 접수하는 중입니다...";
 
     try {
-      await navigator.clipboard?.writeText(body);
-      status.textContent = "상담 내용이 복사되었습니다. 메일 작성 화면을 엽니다.";
-    } catch {
-      status.textContent = "메일 작성 화면을 엽니다.";
-    }
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: data.get("type"),
+          name: data.get("name"),
+          phone,
+          email,
+          region: data.get("region"),
+          message: data.get("message"),
+          consent: data.get("consent") === "on",
+          company_website: data.get("company_website")
+        })
+      });
 
-    const mailto = new URL("mailto:tlsalsruaaws@gmail.com");
-    mailto.searchParams.set("subject", `[신앤 F&B 상담] ${data.get("type")} - ${data.get("name")}`);
-    mailto.searchParams.set("body", body);
-    window.location.href = mailto.toString();
+      if (!response.ok) throw new Error("request_failed");
+      const result = await response.json();
+      if (!result.ok) throw new Error(result.error || "request_failed");
+
+      status.textContent = "상담 신청이 접수되었습니다. 빠르게 연락드리겠습니다.";
+      form.reset();
+    } catch {
+      status.textContent = "전송에 실패했습니다. 잠시 후 다시 시도하시거나 이메일로 문의해주세요.";
+    } finally {
+      submitButton?.removeAttribute("disabled");
+    }
   });
 };
 

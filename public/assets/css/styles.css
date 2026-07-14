@@ -861,6 +861,15 @@ h3 {
   gap: 18px;
 }
 
+.hp-field {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .field-row {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

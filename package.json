@@ -5,8 +5,12 @@
   "description": "Static corporate website for Shin&FNB, designed for Cloudflare Pages.",
   "scripts": {
     "dev": "python3 -m http.server 4173 -d public",
+    "dev:pages": "wrangler pages dev public",
     "hash:notices": "node scripts/hash-notices.mjs",
     "verify": "node scripts/verify-notices.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^4.110.0"
   },
   "engines": {
     "node": ">=20"
