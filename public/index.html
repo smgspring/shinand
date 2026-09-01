@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html lang="ko" id="top">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,20 +11,27 @@
     <meta property="og:url" content="https://www.shin-and.com/">
     <meta property="og:image" content="https://www.shin-and.com/assets/images/hero-cafe-consulting.webp">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="/assets/css/styles.css?v=20260714-contact-api">
+    <link rel="stylesheet" href="/assets/css/styles.css?v=20260901-editorial">
   </head>
   <body>
     <a class="skip-link" href="#main">본문 바로가기</a>
     <header class="site-header" data-header>
-      <a class="brand brand-text-only" href="/" aria-label="주식회사 신앤 F&amp;B 홈">
-        <strong>주식회사 신앤 F&amp;B</strong>
-      </a>
-      <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="site-menu">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span class="sr-only">메뉴 열기</span>
-      </button>
+      <div class="header-top">
+        <a class="brand" href="/" aria-label="주식회사 신앤 F&amp;B 홈">
+          <span>Cafe Startup &amp; Operation</span>
+          <strong>신앤 F&amp;B</strong>
+        </a>
+        <div class="header-utils">
+          <a href="/notices/">공지·전자공고</a>
+          <a href="#contact">상담문의</a>
+        </div>
+        <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="site-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="sr-only">메뉴 열기</span>
+        </button>
+      </div>
       <nav class="site-nav" id="site-menu" data-menu>
         <a href="#about">회사소개</a>
         <a href="#services">서비스</a>
@@ -35,30 +42,34 @@
 
     <main id="main">
       <section class="hero" aria-labelledby="hero-title">
-        <picture>
-          <source srcset="/assets/images/hero-cafe-consulting.webp" type="image/webp">
-          <img src="/assets/images/hero-cafe-consulting.webp" alt="카페 창업 도면과 운영 분석 자료가 놓인 상담 테이블" class="hero-image">
-        </picture>
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
+        <div class="container hero-inner">
           <p class="eyebrow">Special Location · General Cafe · Operation Partner</p>
-          <h1 id="hero-title"><span class="hero-line">카페 창업,</span><span class="hero-line hero-line-long">이제는 실패하지 마세요.</span></h1>
+          <h1 id="hero-title">카페 창업,<br>이제는 실패하지 마세요.</h1>
           <p class="hero-copy">상권 판단부터 메뉴, 원가, 인력, 운영까지. 시작 전부터 위험을 줄이고 오래 가는 카페 구조를 설계합니다.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="#contact">상담 신청하기</a>
           </div>
-          <p class="hero-footnote">특수지역 · 일반상권 · 상권분석 · 운영 대리</p>
         </div>
-      </section>
+        <figure class="container hero-figure">
+          <picture>
+            <source srcset="/assets/images/hero-cafe-consulting.webp" type="image/webp">
+            <img src="/assets/images/hero-cafe-consulting.webp" alt="카페 창업 도면과 운영 분석 자료가 놓인 상담 테이블">
+          </picture>
+          <figcaption>
+            <span>특수지역 · 일반상권 · 상권분석 · 운영 대리</span>
+            <span>ShinAnd F&amp;B</span>
+          </figcaption>
+        </figure>
 
-      <section class="notice-strip" aria-label="공지사항과 전자공고 바로가기">
-        <div class="container notice-strip-inner">
-          <div>
-            <strong>공지사항·전자공고</strong>
-            <span>게시 기간 이후에도 전체 공고를 계속 열람할 수 있습니다.</span>
+        <div class="notice-strip" aria-label="공지사항과 전자공고 바로가기">
+          <div class="container notice-strip-inner">
+            <div>
+              <strong>공지사항·전자공고</strong>
+              <span>게시 기간 이후에도 전체 공고를 계속 열람할 수 있습니다.</span>
+            </div>
+            <div class="notice-strip-list" data-home-notices></div>
+            <a class="text-link" href="/notices/">전체보기</a>
           </div>
-          <div class="notice-strip-list" data-home-notices></div>
-          <a class="text-link" href="/notices/">전체보기</a>
         </div>
       </section>
 
@@ -68,271 +79,314 @@
         </div>
       </section>
 
-      <section class="section compare-section" id="compare" aria-labelledby="compare-title">
-        <div class="container">
-          <div class="section-heading compact">
-            <p class="eyebrow">Compare</p>
-            <h2 id="compare-title">혼자 준비하는 창업과<br>설계된 창업은 다릅니다.</h2>
-          </div>
-          <div class="compare-table" role="table" aria-label="혼자 준비하는 카페 창업과 신앤 F&B 컨설팅 비교">
-            <div class="compare-row compare-head" role="row">
-              <div role="columnheader">구분</div>
-              <div role="columnheader">혼자 준비할 때</div>
-              <div role="columnheader">신앤 F&amp;B와 함께할 때</div>
+      <section class="section" id="compare" aria-labelledby="compare-title">
+        <div class="container section-grid">
+          <aside class="section-side">
+            <p class="side-label">Compare</p>
+            <p class="side-note">혼자 준비하는 창업과 설계된 창업의 차이</p>
+          </aside>
+          <div>
+            <div class="section-heading">
+              <h2 id="compare-title">혼자 준비하는 창업과<br>설계된 창업은 다릅니다.</h2>
             </div>
-            <div class="compare-row" role="row">
-              <div role="cell">입지</div>
-              <div role="cell">유동 인구만 보고 판단합니다.</div>
-              <div role="cell">고객 동선, 체류 시간, 계약 조건까지 봅니다.</div>
-            </div>
-            <div class="compare-row" role="row">
-              <div role="cell">메뉴</div>
-              <div role="cell">하고 싶은 메뉴부터 정합니다.</div>
-              <div role="cell">상권과 회전율에 맞는 메뉴 구조를 잡습니다.</div>
-            </div>
-            <div class="compare-row" role="row">
-              <div role="cell">원가</div>
-              <div role="cell">오픈 후에야 손익을 확인합니다.</div>
-              <div role="cell">투자 규모와 원가율을 사전에 계산합니다.</div>
-            </div>
-            <div class="compare-row" role="row">
-              <div role="cell">운영</div>
-              <div role="cell">문제가 생기면 그때 대응합니다.</div>
-              <div role="cell">인력, 발주, 매뉴얼까지 운영 기준을 만듭니다.</div>
+            <div class="compare-table" role="table" aria-label="혼자 준비하는 카페 창업과 신앤 F&B 컨설팅 비교">
+              <div class="compare-row compare-head" role="row">
+                <div role="columnheader">구분</div>
+                <div role="columnheader">혼자 준비할 때</div>
+                <div role="columnheader">신앤 F&amp;B와 함께할 때</div>
+              </div>
+              <div class="compare-row" role="row">
+                <div role="cell">입지</div>
+                <div role="cell">유동 인구만 보고 판단합니다.</div>
+                <div role="cell">고객 동선, 체류 시간, 계약 조건까지 봅니다.</div>
+              </div>
+              <div class="compare-row" role="row">
+                <div role="cell">메뉴</div>
+                <div role="cell">하고 싶은 메뉴부터 정합니다.</div>
+                <div role="cell">상권과 회전율에 맞는 메뉴 구조를 잡습니다.</div>
+              </div>
+              <div class="compare-row" role="row">
+                <div role="cell">원가</div>
+                <div role="cell">오픈 후에야 손익을 확인합니다.</div>
+                <div role="cell">투자 규모와 원가율을 사전에 계산합니다.</div>
+              </div>
+              <div class="compare-row" role="row">
+                <div role="cell">운영</div>
+                <div role="cell">문제가 생기면 그때 대응합니다.</div>
+                <div role="cell">인력, 발주, 매뉴얼까지 운영 기준을 만듭니다.</div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section intro-section" id="about" aria-labelledby="about-title">
-        <div class="container intro-layout">
-          <div class="section-heading">
-            <p class="eyebrow">About ShinAnd F&amp;B</p>
-            <h2 id="about-title">신앤 F&amp;B는<br>카페 창업과 운영을<br>함께 보는 파트너입니다.</h2>
-            <p>입지, 상권, 메뉴, 원가, 인력까지 함께 검토해 시작 전부터 실패 확률을 낮춥니다. 직접 운영이 어려운 매장은 운영 대리까지 맡습니다.</p>
-          </div>
-          <div class="intro-panel">
-            <img src="/assets/images/hero-cafe-consulting.webp" alt="카페 창업 상담 자료와 운영 분석 도구">
+      <section class="section" id="about" aria-labelledby="about-title">
+        <div class="container section-grid">
+          <aside class="section-side">
+            <p class="side-label">About</p>
+            <p class="side-note">ShinAnd F&amp;B</p>
+          </aside>
+          <div>
+            <div class="section-heading">
+              <h2 id="about-title">신앤 F&amp;B는<br>카페 창업과 운영을 함께 보는 파트너입니다.</h2>
+              <p>입지, 상권, 메뉴, 원가, 인력까지 함께 검토해 시작 전부터 실패 확률을 낮춥니다. 직접 운영이 어려운 매장은 운영 대리까지 맡습니다.</p>
+            </div>
             <ul class="check-list">
               <li>특수지역·일반상권 창업 설계</li>
               <li>상권분석·투자 규모·메뉴·원가 구조 컨설팅</li>
               <li>운영 진단·매뉴얼 정리·현장 운영 대리</li>
             </ul>
+            <figure class="intro-figure">
+              <img src="/assets/images/hero-cafe-consulting.webp" alt="카페 창업 상담 자료와 운영 분석 도구">
+            </figure>
           </div>
         </div>
       </section>
 
-      <section class="section services-section" id="services" aria-labelledby="services-title">
-        <div class="container">
-          <div class="section-heading center-heading">
-            <p class="eyebrow">Services</p>
-            <h2 id="services-title">필요한 만큼만<br>맡겨주세요.</h2>
-            <p>창업 전 판단부터 오픈 후 운영까지, 필요한 구간만 선택할 수 있습니다.</p>
-          </div>
-          <div class="service-grid">
-            <article class="service-card">
-              <span class="service-index">01</span>
-              <h3>특수지역 카페창업</h3>
-              <p>병원, 학교, 오피스, 기관, 리조트 등 특수 입지의 유동·계약·운영 조건을 반영해 창업 구조를 설계합니다.</p>
-            </article>
-            <article class="service-card">
-              <span class="service-index">02</span>
-              <h3>일반지역 카페창업</h3>
-              <p>상권분석, 점포 검토, 메뉴 포지션, 투자 규모, 오픈 일정까지 실행 가능한 계획으로 정리합니다.</p>
-            </article>
-            <article class="service-card">
-              <span class="service-index">03</span>
-              <h3>상권분석 컨설팅</h3>
-              <p>입지의 장단점, 예상 고객, 경쟁 구조, 객단가와 회전율을 검토해 무리한 결정을 줄입니다.</p>
-            </article>
-            <article class="service-card">
-              <span class="service-index">04</span>
-              <h3>카페 운영 대리</h3>
-              <p>직접 운영이 어려운 점주와 사내 카페가 필요한 기업을 위해 인력, 발주, 품질, 매출 관리를 맡습니다.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section reason-section" aria-labelledby="reason-title">
-        <div class="container">
-          <div class="section-heading compact">
-            <p class="eyebrow">Why Cafe Startup</p>
-            <h2 id="reason-title">카페 창업은<br>왜 이렇게 어려울까요?</h2>
-          </div>
-          <div class="reason-grid">
-            <article>
-              <strong>01</strong>
-              <h3>좋아 보이는 자리는 이미 비싸고, 싼 자리는 이유가 있습니다.</h3>
-              <p>임대료, 동선, 체류 시간, 계약 조건을 함께 보지 않으면 시작부터 손익이 흔들립니다.</p>
-            </article>
-            <article>
-              <strong>02</strong>
-              <h3>맛있는 메뉴와 팔리는 메뉴는 다릅니다.</h3>
-              <p>제조 시간, 원가율, 재고, 직원 숙련도까지 맞아야 반복 판매가 가능합니다.</p>
-            </article>
-            <article>
-              <strong>03</strong>
-              <h3>매출이 나도 남지 않는 구조가 생깁니다.</h3>
-              <p>투자금, 객단가, 회전율, 인건비가 어긋나면 바쁜데도 이익이 남지 않습니다.</p>
-            </article>
-            <article>
-              <strong>04</strong>
-              <h3>오픈 후에는 모든 문제가 동시에 옵니다.</h3>
-              <p>발주, 교육, 품질, 매출 점검이 준비되지 않으면 사장님이 모든 일을 떠안게 됩니다.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section process-section" aria-labelledby="process-title">
-        <div class="container">
-          <div class="section-heading center-heading">
-            <p class="eyebrow">Process</p>
-            <h2 id="process-title">쉽고 간결한 프로세스.</h2>
-          </div>
-          <ol class="process-cards">
-            <li>
-              <span>1</span>
-              <strong>진단</strong>
-              <p>목표, 예산, 후보 상권, 운영 가능 시간을 확인합니다.</p>
-            </li>
-            <li>
-              <span>2</span>
-              <strong>전략</strong>
-              <p>입지와 고객 흐름에 맞는 메뉴, 가격, 인력 구조를 설계합니다.</p>
-            </li>
-            <li>
-              <span>3</span>
-              <strong>세팅</strong>
-              <p>오픈 준비, 매뉴얼, 발주 체계, 교육 계획을 정리합니다.</p>
-            </li>
-            <li>
-              <span>4</span>
-              <strong>운영</strong>
-              <p>오픈 후 수치와 현장을 점검하고 운영 대리까지 연결합니다.</p>
-            </li>
-          </ol>
-        </div>
-      </section>
-
-      <section class="section faq-section" aria-labelledby="faq-title">
-        <div class="container faq-layout">
-          <div class="section-heading">
-            <p class="eyebrow">FAQ</p>
-            <h2 id="faq-title">궁금한 점이 있으신가요?</h2>
-          </div>
-          <div class="faq-list">
-            <details>
-              <summary>점포를 아직 정하지 않아도 상담할 수 있나요?</summary>
-              <p>가능합니다. 예산, 목표 매출, 희망 지역, 운영 가능 시간을 먼저 확인하고 후보 입지 검토 기준부터 정리합니다.</p>
-            </details>
-            <details>
-              <summary>특수지역 카페는 무엇이 다른가요?</summary>
-              <p>유동 인구의 성격, 입점 계약, 영업 시간, 객단가, 메뉴 회전율이 일반 상권과 다릅니다. 이 조건을 창업 설계에 먼저 반영합니다.</p>
-            </details>
-            <details>
-              <summary>운영 대리는 어떤 경우에 적합한가요?</summary>
-              <p>직접 운영이 어렵거나 기업 내 카페를 안정적으로 운영하고 싶은 경우 적합합니다. 인력, 발주, 품질, 매출 리포트를 함께 관리합니다.</p>
-            </details>
-          </div>
-        </div>
-      </section>
-
-      <section class="section contact-section" id="contact" aria-labelledby="contact-title">
-        <div class="container contact-layout">
-          <div class="section-heading">
-            <p class="eyebrow">Contact</p>
-            <h2 id="contact-title">서두를 필요 없습니다.<br>무료 상담하세요.</h2>
-            <p>문의 내용은 안전하게 전달됩니다. 전화번호나 이메일 중 하나는 남겨주세요.</p>
-          </div>
-          <form class="contact-form" data-contact-form>
-            <input type="text" name="company_website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
-            <div class="field-row">
-              <label>
-                상담 유형
-                <select name="type" required>
-                  <option value="">선택</option>
-                  <option>특수지역 카페창업</option>
-                  <option>일반지역 카페창업</option>
-                  <option>상권분석 컨설팅</option>
-                  <option>카페 운영 대리</option>
-                  <option>기타 문의</option>
-                </select>
-              </label>
-              <label>
-                성함/회사명
-                <input name="name" autocomplete="name" required>
-              </label>
+      <section class="section" id="services" aria-labelledby="services-title">
+        <div class="container section-grid">
+          <aside class="section-side">
+            <p class="side-label">Services</p>
+            <p class="side-note">필요한 구간만 선택할 수 있습니다.</p>
+          </aside>
+          <div>
+            <div class="section-heading">
+              <h2 id="services-title">필요한 만큼만 맡겨주세요.</h2>
+              <p>창업 전 판단부터 오픈 후 운영까지, 필요한 구간만 선택할 수 있습니다.</p>
             </div>
-            <div class="field-row">
+            <div class="item-grid">
+              <article>
+                <span class="item-index">01</span>
+                <h3>특수지역 카페창업</h3>
+                <p>병원, 학교, 오피스, 기관, 리조트 등 특수 입지의 유동·계약·운영 조건을 반영해 창업 구조를 설계합니다.</p>
+              </article>
+              <article>
+                <span class="item-index">02</span>
+                <h3>일반지역 카페창업</h3>
+                <p>상권분석, 점포 검토, 메뉴 포지션, 투자 규모, 오픈 일정까지 실행 가능한 계획으로 정리합니다.</p>
+              </article>
+              <article>
+                <span class="item-index">03</span>
+                <h3>상권분석 컨설팅</h3>
+                <p>입지의 장단점, 예상 고객, 경쟁 구조, 객단가와 회전율을 검토해 무리한 결정을 줄입니다.</p>
+              </article>
+              <article>
+                <span class="item-index">04</span>
+                <h3>카페 운영 대리</h3>
+                <p>직접 운영이 어려운 점주와 사내 카페가 필요한 기업을 위해 인력, 발주, 품질, 매출 관리를 맡습니다.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="reason-title">
+        <div class="container section-grid">
+          <aside class="section-side">
+            <p class="side-label">Why</p>
+            <p class="side-note">카페 창업이 어려운 이유</p>
+          </aside>
+          <div>
+            <div class="section-heading">
+              <h2 id="reason-title">카페 창업은<br>왜 이렇게 어려울까요?</h2>
+            </div>
+            <div class="item-grid">
+              <article>
+                <span class="item-index">01</span>
+                <h3>좋아 보이는 자리는 이미 비싸고, 싼 자리는 이유가 있습니다.</h3>
+                <p>임대료, 동선, 체류 시간, 계약 조건을 함께 보지 않으면 시작부터 손익이 흔들립니다.</p>
+              </article>
+              <article>
+                <span class="item-index">02</span>
+                <h3>맛있는 메뉴와 팔리는 메뉴는 다릅니다.</h3>
+                <p>제조 시간, 원가율, 재고, 직원 숙련도까지 맞아야 반복 판매가 가능합니다.</p>
+              </article>
+              <article>
+                <span class="item-index">03</span>
+                <h3>매출이 나도 남지 않는 구조가 생깁니다.</h3>
+                <p>투자금, 객단가, 회전율, 인건비가 어긋나면 바쁜데도 이익이 남지 않습니다.</p>
+              </article>
+              <article>
+                <span class="item-index">04</span>
+                <h3>오픈 후에는 모든 문제가 동시에 옵니다.</h3>
+                <p>발주, 교육, 품질, 매출 점검이 준비되지 않으면 사장님이 모든 일을 떠안게 됩니다.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="process-title">
+        <div class="container section-grid">
+          <aside class="section-side">
+            <p class="side-label">Process</p>
+            <p class="side-note">진단부터 운영까지</p>
+          </aside>
+          <div>
+            <div class="section-heading">
+              <h2 id="process-title">쉽고 간결한 프로세스.</h2>
+            </div>
+            <ol class="process-cards">
+              <li>
+                <span>1</span>
+                <strong>진단</strong>
+                <p>목표, 예산, 후보 상권, 운영 가능 시간을 확인합니다.</p>
+              </li>
+              <li>
+                <span>2</span>
+                <strong>전략</strong>
+                <p>입지와 고객 흐름에 맞는 메뉴, 가격, 인력 구조를 설계합니다.</p>
+              </li>
+              <li>
+                <span>3</span>
+                <strong>세팅</strong>
+                <p>오픈 준비, 매뉴얼, 발주 체계, 교육 계획을 정리합니다.</p>
+              </li>
+              <li>
+                <span>4</span>
+                <strong>운영</strong>
+                <p>오픈 후 수치와 현장을 점검하고 운영 대리까지 연결합니다.</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="faq-title">
+        <div class="container section-grid">
+          <aside class="section-side">
+            <p class="side-label">FAQ</p>
+            <p class="side-note">자주 묻는 질문</p>
+          </aside>
+          <div>
+            <div class="section-heading">
+              <h2 id="faq-title">궁금한 점이 있으신가요?</h2>
+            </div>
+            <div class="faq-list" style="margin-top: 44px;">
+              <details>
+                <summary>점포를 아직 정하지 않아도 상담할 수 있나요?</summary>
+                <p>가능합니다. 예산, 목표 매출, 희망 지역, 운영 가능 시간을 먼저 확인하고 후보 입지 검토 기준부터 정리합니다.</p>
+              </details>
+              <details>
+                <summary>특수지역 카페는 무엇이 다른가요?</summary>
+                <p>유동 인구의 성격, 입점 계약, 영업 시간, 객단가, 메뉴 회전율이 일반 상권과 다릅니다. 이 조건을 창업 설계에 먼저 반영합니다.</p>
+              </details>
+              <details>
+                <summary>운영 대리는 어떤 경우에 적합한가요?</summary>
+                <p>직접 운영이 어렵거나 기업 내 카페를 안정적으로 운영하고 싶은 경우 적합합니다. 인력, 발주, 품질, 매출 리포트를 함께 관리합니다.</p>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact" aria-labelledby="contact-title">
+        <div class="container section-grid">
+          <aside class="section-side">
+            <p class="side-label">Contact</p>
+            <p class="side-note">문의 내용은 안전하게 전달됩니다.</p>
+          </aside>
+          <div>
+            <div class="section-heading">
+              <h2 id="contact-title">서두를 필요 없습니다.<br>무료 상담하세요.</h2>
+              <p>문의 내용은 안전하게 전달됩니다. 전화번호나 이메일 중 하나는 남겨주세요.</p>
+            </div>
+            <form class="contact-form" data-contact-form>
+              <input type="text" name="company_website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <div class="field-row">
+                <label>
+                  상담 유형
+                  <select name="type" required>
+                    <option value="">선택</option>
+                    <option>특수지역 카페창업</option>
+                    <option>일반지역 카페창업</option>
+                    <option>상권분석 컨설팅</option>
+                    <option>카페 운영 대리</option>
+                    <option>기타 문의</option>
+                  </select>
+                </label>
+                <label>
+                  성함/회사명
+                  <input name="name" autocomplete="name" required>
+                </label>
+              </div>
+              <div class="field-row">
+                <label>
+                  연락처
+                  <input name="phone" autocomplete="tel" inputmode="tel">
+                </label>
+                <label>
+                  이메일
+                  <input name="email" autocomplete="email" type="email">
+                </label>
+              </div>
               <label>
-                연락처
-                <input name="phone" autocomplete="tel" inputmode="tel">
+                희망 지역 또는 운영 중인 매장
+                <input name="region" placeholder="예: 서울 강남, 사내 카페, 병원 입점 등">
               </label>
               <label>
-                이메일
-                <input name="email" autocomplete="email" type="email">
+                문의 내용
+                <textarea name="message" rows="6" required placeholder="상담 목적, 예산, 일정, 현재 고민을 간단히 적어주세요."></textarea>
               </label>
-            </div>
-            <label>
-              희망 지역 또는 운영 중인 매장
-              <input name="region" placeholder="예: 서울 강남, 사내 카페, 병원 입점 등">
-            </label>
-            <label>
-              문의 내용
-              <textarea name="message" rows="6" required placeholder="상담 목적, 예산, 일정, 현재 고민을 간단히 적어주세요."></textarea>
-            </label>
-            <label class="consent">
-              <input type="checkbox" name="consent" required>
-              <span>상담 회신을 위해 입력한 연락처와 문의 내용을 사용하는 데 동의합니다.</span>
-            </label>
-            <div class="form-actions">
-              <button class="button button-primary" type="submit">무료 상담하기</button>
-            </div>
-            <p class="form-status" data-form-status role="status" aria-live="polite"></p>
-          </form>
+              <label class="consent">
+                <input type="checkbox" name="consent" required>
+                <span>상담 회신을 위해 입력한 연락처와 문의 내용을 사용하는 데 동의합니다.</span>
+              </label>
+              <div class="form-actions">
+                <button class="button button-primary" type="submit">무료 상담하기</button>
+              </div>
+              <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+            </form>
+          </div>
         </div>
       </section>
     </main>
 
+    <div class="backtotop">
+      <div class="container">
+        <a href="#top">Back to Top</a>
+      </div>
+    </div>
+
     <footer class="site-footer">
-      <div class="container footer-layout">
-        <div class="footer-brand">
-          <span>주식회사</span>
-          <strong>신앤 F&amp;B</strong>
+      <div class="container footer-grid">
+        <div class="footer-brand-block">
+          <p class="footer-brand">
+            <span>ShinAnd F&amp;B</span>
+            주식회사 신앤 F&amp;B
+          </p>
+          <dl class="footer-info">
+            <div>
+              <dt>대표자</dt>
+              <dd>신기영</dd>
+            </div>
+            <div>
+              <dt>주소</dt>
+              <dd>서울특별시 서초구 강남대로8길 39-26, 2층(양재동, X6) (우) 06785</dd>
+            </div>
+            <div>
+              <dt>운영시간</dt>
+              <dd>MON — FRI (9 AM ~ 6 PM)</dd>
+            </div>
+          </dl>
         </div>
-        <dl class="footer-info">
-          <div>
-            <dt>회사명</dt>
-            <dd>주식회사 신앤 F&amp;B</dd>
-          </div>
-          <div>
-            <dt>대표자</dt>
-            <dd>신기영</dd>
-          </div>
-          <div>
-            <dt>EMAIL</dt>
-            <dd><a href="mailto:tlsalsruaaws@gmail.com">tlsalsruaaws@gmail.com</a></dd>
-          </div>
-          <div>
-            <dt>운영시간</dt>
-            <dd>MON — FRI (9 AM ~ 6 PM)</dd>
-          </div>
-          <div>
-            <dt>주소</dt>
-            <dd>서울특별시 서초구 강남대로8길 39-26, 2층(양재동, X6) (우) 06785</dd>
-          </div>
-        </dl>
-        <nav class="footer-nav" aria-label="푸터 메뉴">
-          <a href="/#about">회사소개</a>
-          <a href="/#services">서비스</a>
-          <a href="/notices/">공지사항·전자공고</a>
-          <a href="/#contact">상담문의</a>
-        </nav>
-        <p class="footer-copy">Copyright © 주식회사 신앤 F&amp;B. All Rights Reserved.</p>
+        <div class="footer-col">
+          <h3>고객 문의</h3>
+          <p><a href="mailto:tlsalsruaaws@gmail.com">tlsalsruaaws@gmail.com</a></p>
+          <p>평일 09:00 - 18:00</p>
+        </div>
+        <div class="footer-col">
+          <h3>바로가기</h3>
+          <nav class="footer-nav" aria-label="푸터 메뉴">
+            <a href="/#about">회사소개</a>
+            <a href="/#services">서비스</a>
+            <a href="/notices/">공지사항·전자공고</a>
+            <a href="/#contact">상담문의</a>
+          </nav>
+        </div>
+        <p class="footer-copy" style="grid-column: 1 / -1;">Copyright © 주식회사 신앤 F&amp;B. All Rights Reserved.</p>
       </div>
     </footer>
-    <script src="/assets/js/main.js?v=20260714-contact-api" defer></script>
+    <script src="/assets/js/main.js?v=20260901-editorial" defer></script>
   </body>
 </html>

@@ -1,34 +1,50 @@
 <!doctype html>
-<html lang="ko">
+<html lang="ko" id="top">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>신앤 F&amp;B 홈페이지 공개 안내 | 신앤 F&amp;B</title>
     <meta name="description" content="신앤 F&amp;B 홈페이지 공개 안내 공지사항입니다.">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="/assets/css/styles.css?v=20260714-contact-api">
+    <link rel="stylesheet" href="/assets/css/styles.css?v=20260901-editorial">
   </head>
   <body>
-    <header class="site-header solid" data-header>
-      <a class="brand brand-text-only" href="/" aria-label="주식회사 신앤 F&amp;B 홈">
-        <strong>주식회사 신앤 F&amp;B</strong>
-      </a>
-      <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="site-menu">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span class="sr-only">메뉴 열기</span>
-      </button>
+    <a class="skip-link" href="#main">본문 바로가기</a>
+    <header class="site-header" data-header>
+      <div class="header-top">
+        <a class="brand" href="/" aria-label="주식회사 신앤 F&amp;B 홈">
+          <span>Cafe Startup &amp; Operation</span>
+          <strong>신앤 F&amp;B</strong>
+        </a>
+        <div class="header-utils">
+          <a href="/notices/">공지·전자공고</a>
+          <a href="/#contact">상담문의</a>
+        </div>
+        <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="site-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="sr-only">메뉴 열기</span>
+        </button>
+      </div>
       <nav class="site-nav" id="site-menu" data-menu>
-        <a href="/">홈</a>
+        <a href="/#about">회사소개</a>
+        <a href="/#services">서비스</a>
         <a href="/notices/" aria-current="page">공지사항·전자공고</a>
         <a href="/#contact">상담문의</a>
       </nav>
     </header>
 
-    <main class="subpage notice-detail">
+    <main id="main">
+      <nav class="container breadcrumb" aria-label="현재 위치">
+        <ol>
+          <li><a href="/">홈</a></li>
+          <li><a href="/notices/">공지사항·전자공고</a></li>
+          <li><span aria-current="page">공지사항</span></li>
+        </ol>
+      </nav>
+
       <article class="container detail-article">
-        <a class="back-link" href="/notices/">공지 목록으로</a>
         <p class="eyebrow">공지사항</p>
         <h1>신앤 F&amp;B 홈페이지 공개 안내</h1>
         <dl class="detail-meta">
@@ -56,45 +72,56 @@
           <h2 id="attachment-title">첨부파일</h2>
           <a class="button button-outline" href="/notices/2026/notice-2026-001-v1.pdf">공고문 PDF 열기</a>
         </section>
+
+        <p style="margin-top: 48px;"><a class="back-link" href="/notices/">공지 목록으로</a></p>
       </article>
     </main>
+
+    <div class="backtotop">
+      <div class="container">
+        <a href="#top">Back to Top</a>
+      </div>
+    </div>
+
     <footer class="site-footer">
-      <div class="container footer-layout">
-        <div class="footer-brand">
-          <span>주식회사</span>
-          <strong>신앤 F&amp;B</strong>
+      <div class="container footer-grid">
+        <div class="footer-brand-block">
+          <p class="footer-brand">
+            <span>ShinAnd F&amp;B</span>
+            주식회사 신앤 F&amp;B
+          </p>
+          <dl class="footer-info">
+            <div>
+              <dt>대표자</dt>
+              <dd>신기영</dd>
+            </div>
+            <div>
+              <dt>주소</dt>
+              <dd>서울특별시 서초구 강남대로8길 39-26, 2층(양재동, X6) (우) 06785</dd>
+            </div>
+            <div>
+              <dt>운영시간</dt>
+              <dd>MON — FRI (9 AM ~ 6 PM)</dd>
+            </div>
+          </dl>
         </div>
-        <dl class="footer-info">
-          <div>
-            <dt>회사명</dt>
-            <dd>주식회사 신앤 F&amp;B</dd>
-          </div>
-          <div>
-            <dt>대표자</dt>
-            <dd>신기영</dd>
-          </div>
-          <div>
-            <dt>EMAIL</dt>
-            <dd><a href="mailto:tlsalsruaaws@gmail.com">tlsalsruaaws@gmail.com</a></dd>
-          </div>
-          <div>
-            <dt>운영시간</dt>
-            <dd>MON — FRI (9 AM ~ 6 PM)</dd>
-          </div>
-          <div>
-            <dt>주소</dt>
-            <dd>서울특별시 서초구 강남대로8길 39-26, 2층(양재동, X6) (우) 06785</dd>
-          </div>
-        </dl>
-        <nav class="footer-nav" aria-label="푸터 메뉴">
-          <a href="/#about">회사소개</a>
-          <a href="/#services">서비스</a>
-          <a href="/notices/">공지사항·전자공고</a>
-          <a href="/#contact">상담문의</a>
-        </nav>
-        <p class="footer-copy">Copyright © 주식회사 신앤 F&amp;B. All Rights Reserved.</p>
+        <div class="footer-col">
+          <h3>고객 문의</h3>
+          <p><a href="mailto:tlsalsruaaws@gmail.com">tlsalsruaaws@gmail.com</a></p>
+          <p>평일 09:00 - 18:00</p>
+        </div>
+        <div class="footer-col">
+          <h3>바로가기</h3>
+          <nav class="footer-nav" aria-label="푸터 메뉴">
+            <a href="/#about">회사소개</a>
+            <a href="/#services">서비스</a>
+            <a href="/notices/">공지사항·전자공고</a>
+            <a href="/#contact">상담문의</a>
+          </nav>
+        </div>
+        <p class="footer-copy" style="grid-column: 1 / -1;">Copyright © 주식회사 신앤 F&amp;B. All Rights Reserved.</p>
       </div>
     </footer>
-    <script src="/assets/js/main.js?v=20260714-contact-api" defer></script>
+    <script src="/assets/js/main.js?v=20260901-editorial" defer></script>
   </body>
 </html>
