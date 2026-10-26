@@ -10,17 +10,47 @@
 - `public/notices/`: 공지 상세 페이지와 PDF 원본
 - `public/data/notices.json`: 홈페이지와 공지 목록에서 사용하는 공지 인덱스
 - `evidence/`: 공고 게시 증빙 로그, 해시 기록, 배포 기록
-- `scripts/`: 공고 해시/운영 요건 검증 스크립트
+- `scripts/`: 공고 해시/운영 요건 검증, 로컬 서버(`dev-server.mjs`), 장면 렌더링(`render-scenes.mjs`), 로고 생성(`build-logo.mjs`)
+- `public/assets/js/liquid/`: 리퀴드 에셋(유리·클레이 3D) 모델과 렌더링 (Three.js)
+  - `mark.js` 브랜드 마크(머그 + 반짝임) 윤곽. 3D 모델과 SVG 로고가 같은 윤곽을 씁니다
+  - `kit.js` 유리·클레이 재질, 스튜디오 환경광, 형태 헬퍼
+  - `assets.js` 히어로·챕터·서비스 아이콘·프로세스 배경·푸터 카드 장면과 렌더 목록(`RENDERS`)
+  - `hero.js` 히어로 실행부 (느린 부유, 마우스에 따른 미세한 기울기)
+- `public/assets/vendor/three/`: 빌드 없이 배포하기 위해 저장소에 포함한 three.js (`npm run vendor`로 갱신)
+- `public/assets/images/scenes/`: 3D 장면에서 렌더링한 이미지 (WebP)
 
-## 로컬 실행
+## 디자인
 
-정적 화면만 빠르게 볼 때:
+- 컨셉은 리퀴드 에셋입니다: 두꺼운 반투명 유리와 광택 클레이. 색은 기존 톤앤매너 — 깊은 숲 초록 `#14352b` · 크림 `#f2efe6` · 세이지 `#e5eadd` · 포인트 `#47776b`.
+- 큰 색 면의 팔레트는 `public/assets/js/liquid/theme.js` 에서 정합니다. 히어로 · 푸터 카드는 밝은 세이지(D), 프로세스 섹션만 세이지 그린(B).
+  후보 비교 이미지는 `COMPARE=1 OUT_DIR=/tmp/palette npm run render:scenes` 로 다시 뽑을 수 있습니다.
+- 어두운 바탕 위의 유리는 `milkyGlass`(우윳빛 유리)를 써야 배경에 묻히지 않습니다. 밝은 바탕에서는 맑은 초록 유리를 씁니다.
+- 푸터의 "by 오너브릿지"(`ownerbridge-endorser.svg`)는 오너브릿지 확정 로고(열린 아치교 · 남색 주력)의 엔도서 원본입니다. 색과 비율을 바꾸지 않습니다.
+- 히어로는 실시간으로 그리고, WebGL이 없거나 로딩 전에는 `hero-poster.webp`가 보입니다.
+- 챕터·서비스 아이콘·프로세스 배경·푸터 카드·공유 이미지(`og-image.png`)는 같은 재질로 만든 장면을 렌더링한 이미지입니다. 장면(`assets.js`)을 바꾼 뒤에는 `npm run render:scenes`로 다시 만들어 함께 커밋합니다.
+- 로고는 `npm run build:logo`로 `logo-mark.svg`와 `favicon.svg`를 생성합니다.
+
+## 로컬에서 확인하기
+
+> `public/index.html` 파일을 더블클릭해 `file://`로 열면 CSS·스크립트·폰트가 모두 깨져 보입니다. 반드시 아래처럼 로컬 서버로 여세요.
+
+처음 한 번만:
 
 ```bash
-npm run dev
+npm install
 ```
 
-브라우저에서 `http://localhost:4173`으로 확인합니다. (이 방식은 `/api/contact`가 동작하지 않습니다.)
+화면 확인 (기본):
+
+```bash
+npm run dev -- --open
+```
+
+브라우저에서 `http://localhost:4173`이 열립니다. 종료는 터미널에서 `Ctrl + C`. 포트를 바꾸려면 `PORT=5000 npm run dev`.
+이 방식에서는 상담 폼 전송(`/api/contact`)만 동작하지 않습니다.
+
+- 모바일 화면: Chrome 개발자도구(`Cmd + Option + I`) → 기기 툴바(`Cmd + Shift + M`)
+- 3D 에셋을 고친 뒤 이미지 갱신: `npm run render:scenes` (Chrome 필요, 수 초 소요)
 
 상담 신청 폼(`/api/contact`)까지 포함해 실제 배포 환경과 동일하게 확인할 때:
 

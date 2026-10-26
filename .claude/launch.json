@@ -3,8 +3,10 @@
   "configurations": [
     {
       "name": "shinand-dev",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "4173", "-d", "public"],
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "scripts/dev-server.mjs"
+      ],
       "port": 4173
     }
   ]

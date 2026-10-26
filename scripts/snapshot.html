@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>asset renders</title>
+  </head>
+  <body>
+    <pre id="out">rendering</pre>
+    <script type="module">
+      // npm run render:scenes 가 헤드리스 Chrome으로 여는 페이지입니다.
+      // assets.js 의 RENDERS 를 차례로 렌더링해 이미지 data URL(JSON)을 #out 에 씁니다.
+      import { createRenderer, studioEnvironment } from "/assets/js/liquid/kit.js";
+      import { ASSETS, RENDERS, COMPARE } from "/assets/js/liquid/assets.js";
+      import { setTheme, theme, DEFAULT_THEME, SCENE_THEMES } from "/assets/js/liquid/theme.js";
+
+      const out = document.getElementById("out");
+      try {
+        const canvas = document.createElement("canvas");
+        const renderer = createRenderer(canvas, { preserveDrawingBuffer: true, pixelRatio: 1 });
+        const environment = studioEnvironment(renderer);
+        const result = {};
+
+        const jobs = new URLSearchParams(location.search).has("compare") ? COMPARE : RENDERS;
+        for (const [name, job] of Object.entries(jobs)) {
+          setTheme(job.theme || SCENE_THEMES[job.scene] || DEFAULT_THEME);
+          renderer.setSize(job.width, job.height, false);
+          const asset = ASSETS[job.scene](job.width / job.height);
+          asset.scene.environment = environment;
+          asset.layout?.(job.width / job.height);
+          asset.update?.(0);
+          renderer.render(asset.scene, asset.camera);
+          const type = job.out?.endsWith(".png") ? "image/png" : "image/webp";
+          let source = canvas;
+          if (job.caption) {
+            // 공유 이미지: 왼쪽에 브랜드와 헤드라인을 얹습니다
+            source = document.createElement("canvas");
+            source.width = job.width;
+            source.height = job.height;
+            const ctx = source.getContext("2d");
+            ctx.drawImage(canvas, 0, 0);
+            const font = '"Pretendard Variable", Pretendard, "Apple SD Gothic Neo", sans-serif';
+            const light = !theme().dark;
+            ctx.fillStyle = light ? "#14352b" : "rgba(255,255,255,0.9)";
+            ctx.font = `700 30px ${font}`;
+            ctx.fillText("신앤 F&B", 80, 120);
+            ctx.fillStyle = light ? "#14352b" : "#ffffff";
+            ctx.font = `600 64px ${font}`;
+            job.caption.forEach((line, i) => ctx.fillText(line, 80, 270 + i * 84));
+            ctx.fillStyle = light ? "#3d5047" : "rgba(255,255,255,0.9)";
+            ctx.font = `500 26px ${font}`;
+            ctx.fillText("상권 판단부터 운영까지, 오래 가는 카페 구조를 설계합니다.", 80, 480);
+          }
+          result[name] = { out: job.out, data: source.toDataURL(type, job.quality ?? 0.9) };
+        }
+        out.textContent = ["@@", "BEGIN", JSON.stringify(result), "@@", "END"].join("");
+      } catch (error) {
+        out.textContent = ["@@", "ERROR", String(error.stack || error), "@@", "END"].join("");
+      }
+    </script>
+  </body>
+</html>
