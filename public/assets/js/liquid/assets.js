@@ -59,16 +59,43 @@ export const hero = (aspect) => {
   const cam = camera(aspect, { fov: 30, position: [0, 0, 10] });
   const anchor = new THREE.Vector3(-0.9, 1.15, 0.3);
 
-  const layout = (nextAspect) => {
+  // 마크 · 별 · 구슬 전체가 차지하는 크기 (원근으로 앞쪽 구슬이 조금 커 보이는 만큼 여유)
+  const bounds = new THREE.Box3().setFromObject(group);
+  const size = bounds.getSize(new THREE.Vector3()).multiplyScalar(1.08);
+  const center = bounds.getCenter(new THREE.Vector3());
+  const halfHeight = 10 * Math.tan((15 * Math.PI) / 180);
+
+  // region: 화면 비율(0–1)로 준 빈 영역 { l, t, r, b }. 그 안에 들어가도록 크기와 위치를 맞춥니다
+  const fit = (region, maxScale) => {
+    const halfWidth = halfHeight * cam.aspect;
+    const l = (region.l * 2 - 1) * halfWidth;
+    const r = (region.r * 2 - 1) * halfWidth;
+    const t = (1 - region.t * 2) * halfHeight;
+    const b = (1 - region.b * 2) * halfHeight;
+    const scale = Math.max(0.2, Math.min(maxScale, (r - l) / size.x, (t - b) / size.y));
+    group.position.set((l + r) / 2 - center.x * scale, (t + b) / 2 - center.y * scale, 0);
+    group.scale.setScalar(scale);
+  };
+
+  const layout = (nextAspect, region) => {
     cam.aspect = nextAspect;
-    if (nextAspect >= 1.05) {
-      // 가로 화면: 오른쪽에 크게
-      const halfWidth = 10 * Math.tan((15 * Math.PI) / 180) * nextAspect;
+    const halfWidth = halfHeight * nextAspect;
+    if (region?.stacked) {
+      // 카피 아래 무대 영역 안에
+      fit(region, 0.7);
+    } else if (nextAspect >= 1.05 || region) {
+      // 가로 화면: 오른쪽에 크게. 카피와 겹치면 카피 오른쪽 빈 곳에 맞춰 줄입니다
+      const scale = Math.min(0.88, 0.55 + nextAspect * 0.2);
       group.position.set(Math.min(halfWidth * 0.52, 3.4), -0.2, 0);
-      group.scale.setScalar(Math.min(0.88, 0.55 + nextAspect * 0.2));
+      group.scale.setScalar(scale);
+      if (region) {
+        const left = (region.l * 2 - 1) * halfWidth;
+        const top = (1 - region.t * 2) * halfHeight;
+        const overlaps = group.position.x + (center.x - size.x / 2) * scale < left || group.position.y + (center.y + size.y / 2) * scale > top;
+        if (overlaps) fit(region, scale);
+      }
     } else {
-      // 세로 화면: 카피 아래쪽에
-      const halfWidth = 10 * Math.tan((15 * Math.PI) / 180) * nextAspect;
+      // 세로 화면(정지 이미지용): 카피 아래쪽에
       group.position.set(0, -1.55, 0);
       group.scale.setScalar(Math.min(0.62, halfWidth * 0.36));
     }

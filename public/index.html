@@ -11,16 +11,16 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.shin-and.com/">
     <meta property="og:image" content="https://www.shin-and.com/assets/images/og-image.png">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/favicon.svg?v=glass" type="image/svg+xml">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-    <link rel="stylesheet" href="/assets/css/styles.css?v=20261026-liquid3">
+    <link rel="stylesheet" href="/assets/css/styles.css?v=20261027-responsive">
   </head>
   <body class="has-hero">
     <a class="skip-link" href="#main">본문 바로가기</a>
     <header class="site-header" data-header>
       <div class="header-inner">
         <a class="brand" href="/" aria-label="주식회사 신앤 F&amp;B 홈">
-          <span class="brand-mark"><img src="/assets/images/logo-mark.svg" alt="" width="68" height="61"></span>
+          <span class="brand-mark"><img src="/assets/images/logo-mark.svg" alt="" width="77" height="57"></span>
           <span class="brand-name">신앤 F&amp;B</span>
         </a>
         <nav class="site-nav" id="site-menu" data-menu aria-label="주 메뉴">
@@ -49,12 +49,14 @@
           <canvas data-liquid-scene></canvas>
         </div>
         <div class="hero-chips" aria-hidden="true">
-          <div class="chip"><i class="dot is-done"></i><span>완료</span><strong>상권 분석 리포트</strong></div>
-          <div class="chip"><i class="dot is-running"></i><span>진행 중</span><strong>메뉴 원가 설계</strong></div>
-          <div class="chip"><i class="dot is-done"></i><span>완료</span><strong>오픈 체크리스트</strong></div>
+          <div class="chip-stack" data-chip-stack>
+            <div class="chip-wrap"><div class="chip-pop"><div class="chip"><span class="chip-status"><span>완료</span></span><strong>상권 분석 리포트</strong></div></div></div>
+            <div class="chip-wrap"><div class="chip-pop"><div class="chip"><span class="chip-status is-running"><span>진행 중</span></span><strong>메뉴 원가 설계</strong></div></div></div>
+            <div class="chip-wrap"><div class="chip-pop"><div class="chip"><span class="chip-status"><span>완료</span></span><strong>오픈 체크리스트</strong></div></div></div>
+          </div>
         </div>
         <div class="container hero-copy">
-          <p class="hero-kicker"><i class="dot"></i>카페 창업 · 상권분석 · 운영 대리</p>
+          <p class="hero-kicker">카페 창업 · 상권분석 · 운영 대리</p>
           <h1 id="hero-title">카페 창업,<br>이제는 실패하지 마세요.</h1>
           <p class="hero-lead">상권 판단부터 메뉴, 원가, 인력, 운영까지. <br>시작 전부터 위험을 줄이고 오래 가는 카페 구조를 설계합니다.</p>
           <div class="hero-actions">
@@ -63,15 +65,16 @@
           </div>
           <p class="hero-note">평일 09:00 – 18:00 · 상담은 무료입니다</p>
         </div>
+        <div class="hero-stage" aria-hidden="true"></div>
       </section>
 
       <section class="strip" aria-label="서비스 영역과 공지사항">
         <div class="container">
           <ul class="strip-tiles">
-            <li><img src="/assets/images/scenes/service-1.webp" width="256" height="256" alt="">특수지역 창업</li>
-            <li><img src="/assets/images/scenes/service-2.webp" width="256" height="256" alt="">일반상권 창업</li>
-            <li><img src="/assets/images/scenes/service-3.webp" width="256" height="256" alt="">상권분석 컨설팅</li>
-            <li><img src="/assets/images/scenes/service-4.webp" width="256" height="256" alt="">카페 운영 대리</li>
+            <li><a href="#svc-startup" data-open="svc-special"><img src="/assets/images/scenes/service-1.webp" width="256" height="256" alt="">특수지역 창업</a></li>
+            <li><a href="#svc-startup" data-open="svc-general"><img src="/assets/images/scenes/service-2.webp" width="256" height="256" alt="">일반상권 창업</a></li>
+            <li><a href="#svc-analysis"><img src="/assets/images/scenes/service-3.webp" width="256" height="256" alt="">상권분석 컨설팅</a></li>
+            <li><a href="#svc-ops"><img src="/assets/images/scenes/service-4.webp" width="256" height="256" alt="">카페 운영 대리</a></li>
           </ul>
           <p class="strip-caption">병원 · 학교 · 오피스 · 기관 · 리조트, 입지가 달라도 원칙은 같습니다.</p>
 
@@ -90,20 +93,20 @@
         <div class="container">
           <h2 class="display center" id="about-title">신앤 F&amp;B는 카페 창업과 운영을 <br><span class="tone">함께 설계하는 파트너입니다</span></h2>
 
-          <div class="app-frame" aria-hidden="true">
-            <div class="app-bar">
-              <span class="app-crumb"><i class="app-avatar">S&amp;</i>신앤 F&amp;B / 카페 운영 구조</span>
+          <div class="app-frame">
+            <div class="app-bar" aria-hidden="true">
+              <span class="app-crumb">신앤 F&amp;B / 카페 운영 구조</span>
               <span class="app-dots"><i></i><i></i><i></i></span>
             </div>
             <div class="app-body">
-              <div class="wheel">
+              <div class="wheel" aria-hidden="true">
                 <svg class="wheel-lines" viewBox="0 0 400 400">
                   <circle cx="200" cy="200" r="150"/>
                   <circle cx="200" cy="200" r="78"/>
                   <path d="M200 50V350M50 200H350M94 94L306 306M306 94L94 306"/>
                 </svg>
                 <div class="wheel-center">
-                  <img src="/assets/images/logo-mark.svg" alt="" width="68" height="61">
+                  <img src="/assets/images/logo-mark.svg" alt="" width="77" height="57">
                   <span>신앤</span>
                 </div>
                 <span class="wheel-node" style="--a: 0">입지</span>
@@ -116,14 +119,14 @@
                 <span class="wheel-node" style="--a: 7">매출</span>
               </div>
               <div class="chat">
-                <div class="chat-tabs"><span class="is-active">상담 노트</span><span>체크리스트</span><span>리포트</span></div>
-                <div class="chat-log">
+                <p class="chat-title" aria-hidden="true">상담 노트 <span>예시</span></p>
+                <div class="chat-log" aria-hidden="true">
                   <p class="msg msg-user">병원 1층 카페 입점을 검토하고 있어요. 어디서부터 봐야 할까요?</p>
                   <p class="msg msg-team"><b>신앤</b>유동 인구는 많지만 체류 시간이 짧은 입지예요. 테이크아웃 중심 메뉴와 오전 피크 인력부터 계산해볼게요.</p>
                   <p class="msg msg-user">계약 조건도 같이 봐주실 수 있나요?</p>
                   <p class="msg msg-team"><b>신앤</b>네. 영업 시간 제한과 임대 조건을 손익 기준으로 함께 정리해드릴게요.</p>
                 </div>
-                <div class="chat-input">예산과 희망 지역을 알려주세요…<i>↑</i></div>
+                <a class="chat-input" href="#contact">예산과 희망 지역을 알려주세요…<i aria-hidden="true">↑</i></a>
               </div>
             </div>
           </div>
@@ -150,17 +153,17 @@
           <h2 class="display" id="services-title">카페를 여는 일은 함께 설계하고, <br><span class="tone">사장님은 좋은 카페에 집중하세요.</span></h2>
           <p class="lead">창업 전 판단부터 오픈 후 운영까지, 필요한 구간만 선택할 수 있습니다. 모든 결정은 사장님이 확인한 뒤에 진행됩니다.</p>
 
-          <article class="feature">
+          <article class="feature" id="svc-startup">
             <div class="feature-text">
               <p class="eyebrow">1.0 — 창업 설계</p>
               <h3>특수지역부터 일반상권까지, <span class="tone">실행 가능한 창업 계획을 만듭니다</span></h3>
               <p>목표와 예산, 운영 가능 시간을 먼저 확인하고 입지 조건에 맞는 창업 구조를 설계합니다.</p>
               <div class="acc" data-accordion>
-                <details open>
+                <details id="svc-special" open>
                   <summary><span class="mono">1.1</span>특수지역 카페창업</summary>
                   <p>병원, 학교, 오피스, 기관, 리조트 등 특수 입지의 유동·계약·운영 조건을 반영해 창업 구조를 설계합니다.</p>
                 </details>
-                <details>
+                <details id="svc-general">
                   <summary><span class="mono">1.2</span>일반지역 카페창업</summary>
                   <p>상권분석, 점포 검토, 메뉴 포지션, 투자 규모, 오픈 일정까지 실행 가능한 계획으로 정리합니다.</p>
                 </details>
@@ -178,26 +181,26 @@
               <div class="board">
                 <div class="board-col">
                   <div class="board-head">진단 단계<span>1/1</span></div>
-                  <div class="task is-done"><i class="ico ico-green"></i><div><b>목표·예산 확인</b><small>사장님과 함께</small></div><em>✓</em></div>
+                  <div class="task is-done"><div><b>목표·예산 확인</b><small>사장님과 함께</small></div><em>✓</em></div>
                 </div>
                 <div class="board-col">
                   <div class="board-head">전략 단계<span>1/3</span></div>
-                  <div class="task is-done"><i class="ico ico-blue"></i><div><b>후보 입지 비교</b><small>신앤</small></div><em>✓</em></div>
-                  <div class="task is-active"><i class="ico ico-orange"></i><div><b>메뉴 구조 설계</b><small>신앤 · 진행 중</small></div></div>
-                  <div class="task"><i class="ico ico-brown"></i><div><b>투자 규모 산정</b><small>사장님 확인 필요</small></div></div>
+                  <div class="task is-done"><div><b>후보 입지 비교</b><small>신앤</small></div><em>✓</em></div>
+                  <div class="task is-active"><div><b>메뉴 구조 설계</b><small>신앤 · 진행 중</small></div></div>
+                  <div class="task"><div><b>투자 규모 산정</b><small>사장님 확인 필요</small></div></div>
                 </div>
                 <div class="board-col">
                   <div class="board-head">세팅 단계<span>0/4</span></div>
-                  <div class="task"><i class="ico ico-blue"></i><div><b>인테리어 일정</b><small>사장님 확인 필요</small></div></div>
-                  <div class="task"><i class="ico ico-green"></i><div><b>발주처 세팅</b><small>신앤</small></div></div>
-                  <div class="task"><i class="ico ico-orange"></i><div><b>운영 매뉴얼</b><small>신앤</small></div></div>
-                  <div class="task"><i class="ico ico-brown"></i><div><b>직원 교육</b><small>신앤</small></div></div>
+                  <div class="task"><div><b>인테리어 일정</b><small>사장님 확인 필요</small></div></div>
+                  <div class="task"><div><b>발주처 세팅</b><small>신앤</small></div></div>
+                  <div class="task"><div><b>운영 매뉴얼</b><small>신앤</small></div></div>
+                  <div class="task"><div><b>직원 교육</b><small>신앤</small></div></div>
                 </div>
               </div>
             </div>
           </article>
 
-          <article class="feature">
+          <article class="feature" id="svc-analysis">
             <div class="feature-text">
               <p class="eyebrow">2.0 — 상권 분석</p>
               <h3>좋아 보이는 자리와 <span class="tone">남는 자리를 구분합니다</span></h3>
@@ -250,7 +253,7 @@
             </div>
           </article>
 
-          <article class="feature">
+          <article class="feature" id="svc-ops">
             <div class="feature-text">
               <p class="eyebrow">3.0 — 운영 대리</p>
               <h3>오픈 후에도 <span class="tone">카페가 계속 돌아가게 합니다</span></h3>
@@ -299,105 +302,64 @@
         </div>
       </section>
 
-      <section class="section section-tight flow" id="field" aria-labelledby="field-title">
+      <section class="section section-tight case" id="field" aria-labelledby="field-title">
         <div class="container">
-          <p class="eyebrow">현장 진단 사례 · 대면 진단</p>
-          <h2 class="display" id="field-title">손님은 기다리는데 직원은 바쁘다면, <br>사람을 뽑기 전에 자리 배치부터 보세요.</h2>
-          <p class="lead">한 카페의 피크 2시간을 지켜봤더니, 직원이 주문대와 바 사이를 <b>41번</b> 오갔습니다. 일하는 시간의 <b>17.6%</b>를 걷는 데 쓴 셈입니다. 인원을 늘리지 않고 자리만 고정해도 같은 2명으로 더 많은 주문을 처리할 수 있었습니다.</p>
+          <p class="eyebrow">현장 진단 사례 · 관광지 전망 카페</p>
+          <h2 class="display" id="field-title">같은 근무표로 1년을 버티면, <br>여름엔 손님이 기다리고 겨울엔 인건비가 샙니다.</h2>
+          <p class="lead">한 전망 카페의 POS 1년치와 성수기 현장 실측을 함께 봤습니다. 8월 매출은 1월의 <b>4.6배</b>인데 근무표는 1년 내내 같았습니다. 겨울엔 매출의 절반이 인건비로 나가고, 여름 피크엔 대기가 <b>13.7분</b>까지 늘었습니다.</p>
 
-          <div class="flow-grid">
-            <figure class="flow-plan" data-flow data-state="now">
-              <div class="flow-head">
-                <figcaption>4층 매장 약도 · 피크 시간 동선 <small>현장 확인, 축척 없음</small></figcaption>
-                <div class="flow-toggle" role="group" aria-label="약도 보기">
-                  <button type="button" data-flow-view="now" aria-pressed="true">현재 동선</button>
-                  <button type="button" data-flow-view="plan" aria-pressed="false">제안 배치</button>
-                </div>
-              </div>
-              <svg viewBox="0 0 520 330" role="img" aria-labelledby="flow-svg-title">
-                <title id="flow-svg-title">매장 약도: 주문대와 바가 6미터 떨어져 피크 2시간 동안 41번 왕복합니다. 제안은 주문·제조·픽업 자리를 고정하는 것입니다.</title>
-                <rect class="fp-floor" x="6" y="6" width="508" height="318" rx="14"/>
-                <rect class="fp-window" x="6" y="6" width="508" height="8" rx="4"/>
-                <text class="fp-label" x="260" y="34" text-anchor="middle">전망 창</text>
-                <g class="fp-seats">
-                  <rect x="40" y="50" width="70" height="34" rx="8"/><rect x="130" y="50" width="70" height="34" rx="8"/><rect x="220" y="50" width="70" height="34" rx="8"/><rect x="310" y="50" width="70" height="34" rx="8"/><rect x="400" y="50" width="70" height="34" rx="8"/>
-                  <rect x="40" y="102" width="70" height="34" rx="8"/><rect x="130" y="102" width="70" height="34" rx="8"/><rect x="220" y="102" width="70" height="34" rx="8"/>
-                </g>
-                <text class="fp-label" x="400" y="126">좌석 32석</text>
-                <rect class="fp-zone" x="230" y="186" width="250" height="44" rx="10"/><text class="fp-name" x="355" y="213" text-anchor="middle">바 (제조)</text>
-                <rect class="fp-zone" x="168" y="186" width="56" height="44" rx="10"/><text class="fp-name" x="196" y="213" text-anchor="middle">픽업</text>
-                <rect class="fp-zone" x="30" y="262" width="104" height="44" rx="10"/><text class="fp-name" x="82" y="289" text-anchor="middle">주문·결제</text>
-                <rect class="fp-zone" x="370" y="262" width="110" height="44" rx="10"/><text class="fp-name" x="425" y="289" text-anchor="middle">재료 창고</text>
-                <rect class="fp-lift" x="170" y="272" width="80" height="44" rx="8"/><text class="fp-label" x="210" y="299" text-anchor="middle">승강기</text>
-
-                <g class="fp-now">
-                  <path class="fp-trip" d="M134 270 C 170 250, 210 250, 232 228"/>
-                  <path class="fp-trip fp-trip-back" d="M232 228 C 205 252, 168 252, 134 276"/>
-                  <text class="fp-trip-label" x="24" y="246">주문대–바 왕복 41회 / 2시간</text>
-                  <path class="fp-supply" d="M370 284 C 330 264, 320 250, 330 232"/>
-                  <text class="fp-supply-label" x="300" y="262">반입</text>
-                </g>
-
-                <g class="fp-plan">
-                  <path class="fp-handoff" d="M134 282 C 160 262, 176 246, 190 232"/>
-                  <text class="fp-plan-label" x="24" y="230">주문은 주문대에서 끝내고 픽업대로 넘김</text>
-                  <g class="fp-staff"><circle cx="82" cy="247" r="12"/><text x="82" y="251" text-anchor="middle">주문</text></g>
-                  <g class="fp-staff"><circle cx="330" cy="168" r="13"/><text x="330" y="172" text-anchor="middle">제조</text></g>
-                  <g class="fp-staff fp-staff-light"><circle cx="196" cy="168" r="13"/><text x="196" y="172" text-anchor="middle">픽업</text></g>
-                </g>
-              </svg>
-              <p class="flow-caption" data-flow-caption>주문대와 바가 6m 떨어져 있어, 한 번 오갈 때마다 손 씻기를 포함해 평균 31초가 걸립니다.</p>
+          <div class="case-grid">
+            <figure class="case-chart">
+              <figcaption>월별 매출과 인건비율 <small>매출 만원 · 인건비율 = 월 인건비 ÷ 월 매출</small></figcaption>
+              <div class="case-chart-scroll"><svg viewBox="0 0 640 270" role="img" aria-labelledby="case-chart-title"><title id="case-chart-title">월별 매출과 인건비율. 8월 매출은 2,380만원으로 1월 520만원의 4.6배지만 근무표가 같아 인건비율은 1월 54%, 8월 12%입니다.</title><line class="cc-grid" x1="52" x2="620" y1="193.2" y2="193.2"/><text class="cc-axis" x="44" y="197.2" text-anchor="end">500</text><line class="cc-grid" x1="52" x2="620" y1="150.4" y2="150.4"/><text class="cc-axis" x="44" y="154.4" text-anchor="end">1,000</text><line class="cc-grid" x1="52" x2="620" y1="107.6" y2="107.6"/><text class="cc-axis" x="44" y="111.6" text-anchor="end">1,500</text><line class="cc-grid" x1="52" x2="620" y1="64.8" y2="64.8"/><text class="cc-axis" x="44" y="68.8" text-anchor="end">2,000</text><line class="cc-grid" x1="52" x2="620" y1="22.0" y2="22.0"/><text class="cc-axis" x="44" y="26.0" text-anchor="end">2,500</text><rect class="cc-bar" x="63.7" y="191.5" width="24" height="44.5" rx="5"/><text class="cc-month" x="75.7" y="256" text-anchor="middle">1월</text><rect class="cc-bar" x="111.0" y="188.1" width="24" height="47.9" rx="5"/><text class="cc-month" x="123.0" y="256" text-anchor="middle">2월</text><rect class="cc-bar" x="158.3" y="176.1" width="24" height="59.9" rx="5"/><text class="cc-month" x="170.3" y="256" text-anchor="middle">3월</text><rect class="cc-bar" x="205.7" y="152.1" width="24" height="83.9" rx="5"/><text class="cc-month" x="217.7" y="256" text-anchor="middle">4월</text><rect class="cc-bar" x="253.0" y="129.9" width="24" height="106.1" rx="5"/><text class="cc-month" x="265.0" y="256" text-anchor="middle">5월</text><rect class="cc-bar is-peak" x="300.3" y="109.3" width="24" height="126.7" rx="5"/><text class="cc-month" x="312.3" y="256" text-anchor="middle">6월</text><rect class="cc-bar is-peak" x="347.7" y="52.0" width="24" height="184.0" rx="5"/><text class="cc-month" x="359.7" y="256" text-anchor="middle">7월</text><rect class="cc-bar is-peak" x="395.0" y="32.3" width="24" height="203.7" rx="5"/><text class="cc-month" x="407.0" y="256" text-anchor="middle">8월</text><rect class="cc-bar is-peak" x="442.3" y="105.9" width="24" height="130.1" rx="5"/><text class="cc-month" x="454.3" y="256" text-anchor="middle">9월</text><rect class="cc-bar" x="489.7" y="117.9" width="24" height="118.1" rx="5"/><text class="cc-month" x="501.7" y="256" text-anchor="middle">10월</text><rect class="cc-bar" x="537.0" y="170.9" width="24" height="65.1" rx="5"/><text class="cc-month" x="549.0" y="256" text-anchor="middle">11월</text><rect class="cc-bar" x="584.3" y="189.8" width="24" height="46.2" rx="5"/><text class="cc-month" x="596.3" y="256" text-anchor="middle">12월</text><polyline class="cc-line" points="75.7,43.4 123.0,57.7 170.3,93.3 217.7,132.6 265.0,154.0 312.3,168.2 359.7,189.6 407.0,193.2 454.3,171.8 501.7,164.7 549.0,104.0 596.3,50.5"/><circle class="cc-dot" cx="75.7" cy="43.4" r="4"/><circle class="cc-dot" cx="123.0" cy="57.7" r="4"/><circle class="cc-dot" cx="170.3" cy="93.3" r="4"/><circle class="cc-dot" cx="217.7" cy="132.6" r="4"/><circle class="cc-dot" cx="265.0" cy="154.0" r="4"/><circle class="cc-dot" cx="312.3" cy="168.2" r="4"/><circle class="cc-dot" cx="359.7" cy="189.6" r="4"/><circle class="cc-dot" cx="407.0" cy="193.2" r="4"/><circle class="cc-dot" cx="454.3" cy="171.8" r="4"/><circle class="cc-dot" cx="501.7" cy="164.7" r="4"/><circle class="cc-dot" cx="549.0" cy="104.0" r="4"/><circle class="cc-dot" cx="596.3" cy="50.5" r="4"/><text class="cc-note" x="75.7" y="31.4" text-anchor="middle">54%</text><text class="cc-note cc-note-in" x="407.0" y="213.2" text-anchor="middle">12%</text><text class="cc-note" x="596.3" y="38.5" text-anchor="middle">52%</text></svg></div>
+              <p class="case-chart-hint" aria-hidden="true">옆으로 밀어 12월까지 볼 수 있습니다</p>
+              <div class="case-legend"><span><i class="lg-peak"></i>성수기 매출 (6–9월)</span><span><i class="lg-off"></i>비수기 매출</span><span><i class="lg-line"></i>인건비율</span></div>
             </figure>
 
-            <div class="flow-findings">
-              <div class="flow-stat">
-                <strong>17.6<span>%</span></strong>
-                <p>피크 근무시간 중 <b>음료를 만들지도, 주문을 받지도 않고 걸은 시간</b>. 왕복 1회 31초 × 2시간에 41번.</p>
-              </div>
-              <div class="flow-bars">
-                <p class="flow-bars-head">피크 시간대 근무자 업무 시간 구성 <small>11–13시, 2명 관찰</small></p>
-                <ul>
-                  <li><span>음료 제조</span><i style="--v: 41.6%"></i><b>41.6%</b></li>
-                  <li><span>주문·결제</span><i style="--v: 25.9%"></i><b>25.9%</b></li>
-                  <li class="is-hi"><span>주문대–바 왕복</span><i style="--v: 17.6%"></i><b>17.6%</b></li>
-                  <li><span>픽업 안내·정리</span><i style="--v: 14.9%"></i><b>14.9%</b></li>
-                </ul>
-              </div>
-              <div class="flow-proposal">
-                <p class="flow-bars-head">제안 · 인원 수별 자리 고정</p>
-                <dl>
-                  <div><dt>1명</dt><dd>혼자 전부 담당, 주문 3건 이상 밀리면 주문 우선</dd></div>
-                  <div><dt>2명</dt><dd>주문·결제 고정 <em>피크 중 바 진입 금지</em> · 제조 고정</dd></div>
-                  <div class="is-rec"><dt>3명</dt><dd>주문 · 제조 · 픽업 모두 고정</dd></div>
-                </dl>
-              </div>
+            <div class="case-drivers">
+              <h3>손님 수를 정한 건 요일이 아니라, <br>세 가지 변수였습니다</h3>
+              <ol>
+                <li>
+                  <p class="cd-name">날씨</p>
+                  <p class="cd-fact">바람이 세서 체험시설이 멈춘 날은 주문이 <b>25%</b> 적고, 피크가 <b>1시간</b> 앞당겨졌습니다.</p>
+                  <p class="cd-act">전날 풍속 예보로 주말 근무를 1시간 앞당깁니다.</p>
+                </li>
+                <li>
+                  <p class="cd-name">일몰</p>
+                  <p class="cd-fact">저녁 피크는 일몰 약 <b>40분 전</b>에 시작해, 7월 초 19:05에서 8월 말 18:15로 <b>50분</b> 움직였습니다.</p>
+                  <p class="cd-act">야간 근무 시작을 시계가 아닌 일몰 기준으로 — 7월 18:00, 8월 17:30.</p>
+                </li>
+                <li>
+                  <p class="cd-name">메뉴</p>
+                  <p class="cd-fact">빙수·에이드는 피크 주문의 <b>23%</b>인데 바 작업 시간의 <b>43%</b>를 차지했습니다.</p>
+                  <p class="cd-act">토핑 소분과 베이스 사전 배합으로 빙수 250→160초, 에이드 170→80초.</p>
+                </li>
+              </ol>
             </div>
           </div>
-          <div class="flow-check">
-            <div class="flow-check-head">
-              <p class="flow-check-kicker">우리 매장도 그럴까?</p>
-              <h3>피크 시간에 <br>이 세 가지를 확인해 보세요</h3>
+
+          <div class="case-results">
+            <div><p class="cr-value">−383<span>만원</span></p><p class="cr-label">연간 인건비 <b>−11.4%</b></p><p class="cr-note">비수기 평일 조정 −764만원, 성수기 보강 +381만원</p></div>
+            <div><p class="cr-value">−19<span>%</span></p><p class="cr-label">피크 평균 제조 시간</p><p class="cr-note">1잔 107초 → 86초</p></div>
+            <div><p class="cr-value">1<span>장</span> → 3<span>장</span></p><p class="cr-label">근무표</p><p class="cr-note">비수기 · 성수기 · 한여름 야간</p></div>
+          </div>
+
+          <div class="case-check">
+            <div class="case-check-head">
+              <p class="case-check-kicker">우리 매장은 어떨까요?</p>
+              <h3>이 세 가지에 <br>바로 답할 수 있나요?</h3>
             </div>
             <ol>
-              <li>
-                <b>주문대에서 바까지 세 걸음(약 2m)이 넘는다</b>
-                <span>한 번 오갈 때마다 손 씻기까지 30초 안팎이 사라집니다. 하루 수십 번이면 직원 한 명의 한 시간입니다.</span>
-              </li>
-              <li>
-                <b>주문 받던 직원이 바에 들어가 음료를 같이 만든다</b>
-                <span>그 사이 주문대가 비어 줄이 길어집니다. 2명이라면 피크 동안 주문 담당은 주문대를 떠나지 않는 게 원칙입니다.</span>
-              </li>
-              <li>
-                <b>직원을 한 명 더 뽑았는데 대기 시간이 그대로다</b>
-                <span>병목이 사람 수가 아니라 동선에 있다는 신호입니다. 인건비만 늘고 처리량은 늘지 않습니다.</span>
-              </li>
+              <li><b>가장 바쁜 달과 한가한 달의 인건비율</b><span>둘 다 몇 %인지 알고 있다면, 근무표가 계절을 따라가고 있는지 바로 보입니다.</span></li>
+              <li><b>손님 수를 움직이는 바깥 변수</b><span>날씨, 행사, 일몰, 학사 일정처럼 우리 매장의 피크를 앞당기거나 늦추는 것이 무엇인지.</span></li>
+              <li><b>피크 시간에 가장 오래 걸리는 메뉴의 두 비중</b><span>주문 비중과 작업 시간 비중. 둘의 차이가 크면 메뉴 운영만으로 대기를 줄일 수 있습니다.</span></li>
             </ol>
-            <div class="flow-check-foot">
-              <p>하나라도 해당된다면, 인원을 늘리기 전에 동선부터 점검하는 편이 싸고 빠릅니다.</p>
-              <a class="btn btn-dark" href="#contact">우리 매장 동선 진단 받기 <span aria-hidden="true">→</span></a>
+            <div class="case-check-foot">
+              <p>하나라도 바로 답하기 어렵다면, 사람을 늘리거나 근무표를 바꾸기 전에 숫자부터 확인해 보세요.</p>
+              <a class="btn btn-light" href="#contact">우리 매장 진단 받기 <span aria-hidden="true">→</span></a>
             </div>
           </div>
-          <p class="flow-source">사례 자료: 신앤 F&amp;B 대면 진단 예시 보고서 — 성수기 토요일 11:00–13:00 현장 관찰, 근무자 2명 업무 시간 기록</p>
+          <p class="case-source">사례 자료: 신앤 F&amp;B 대면 진단 예시 보고서 — POS 1년치 월·시간대 매출, 성수기 토요일 현장 실측(근무자 2명 업무 기록, 메뉴 5종 각 10회 측정), 천문 일몰 시각. 인건비는 주휴수당·4대보험 사업주 부담·퇴직금 적립 포함 추정치.</p>
         </div>
       </section>
 
@@ -406,7 +368,7 @@
           <div class="chapters-head">
             <h2 class="display center" id="reason-title">카페 창업은 왜 이렇게 어려울까요?</h2>
             <p class="lead center">네 가지 이유를 먼저 알면, 피할 수 있는 실패가 보입니다.</p>
-            <a class="btn btn-dark" href="#contact">상담으로 점검하기</a>
+            <a class="btn btn-dark" href="#contact">상담으로 점검하기 <span aria-hidden="true">→</span></a>
           </div>
           <div class="book-grid">
             <article class="book">
@@ -468,11 +430,11 @@
           </div>
           <div class="step-window">
             <div class="app-bar">
-              <span class="app-crumb"><i class="app-avatar">S&amp;</i>나의 카페 프로젝트</span>
+              <span class="app-crumb">나의 카페 프로젝트</span>
               <span class="app-dots"><i></i><i></i><i></i></span>
             </div>
             <div class="step-panel" role="tabpanel" id="step-panel-1" aria-labelledby="step-tab-1">
-              <p class="step-status"><i class="dot is-done"></i>진단 단계</p>
+              <p class="step-status">진단 단계</p>
               <ul class="step-list">
                 <li class="is-done">창업 목표와 예산 범위 확인</li>
                 <li class="is-done">희망 지역·후보 점포 정리</li>
@@ -481,7 +443,7 @@
               </ul>
             </div>
             <div class="step-panel" role="tabpanel" id="step-panel-2" aria-labelledby="step-tab-2" hidden>
-              <p class="step-status"><i class="dot is-running"></i>전략 단계</p>
+              <p class="step-status">전략 단계</p>
               <ul class="step-list">
                 <li class="is-done">후보 입지 고객 흐름 비교</li>
                 <li class="is-active">메뉴 구조와 가격대 설계</li>
@@ -490,7 +452,7 @@
               </ul>
             </div>
             <div class="step-panel" role="tabpanel" id="step-panel-3" aria-labelledby="step-tab-3" hidden>
-              <p class="step-status"><i class="dot is-running"></i>세팅 단계</p>
+              <p class="step-status">세팅 단계</p>
               <ul class="step-list">
                 <li class="is-done">오픈 일정표 확정</li>
                 <li class="is-active">발주처·재고 기준 세팅</li>
@@ -499,7 +461,7 @@
               </ul>
             </div>
             <div class="step-panel" role="tabpanel" id="step-panel-4" aria-labelledby="step-tab-4" hidden>
-              <p class="step-status"><i class="dot is-running"></i>운영 단계</p>
+              <p class="step-status">운영 단계</p>
               <ul class="step-list">
                 <li class="is-done">오픈 첫 달 현장 점검</li>
                 <li class="is-active">주간 매출·원가 리포트</li>
@@ -670,7 +632,7 @@
           <img src="/assets/images/scenes/footer-card.webp" width="960" height="1146" alt="신앤 F&amp;B 유리 머그 마크" loading="lazy">
           <div class="footer-card-text">
             <p>상권부터 운영까지,<br><span>오래 가는 카페 구조를 설계합니다.</span></p>
-            <a class="btn btn-dark" href="/#contact">무료 상담 신청</a>
+            <a class="btn btn-dark" href="/#contact">무료 상담 신청 <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </div>
@@ -680,7 +642,7 @@
         <a href="#top">맨 위로 ↑</a>
       </div>
     </footer>
-    <script type="module" src="/assets/js/liquid/hero.js?v=20261026-liquid3"></script>
-    <script src="/assets/js/main.js?v=20261026-liquid3" defer></script>
+    <script type="module" src="/assets/js/liquid/hero.js?v=20261027-responsive"></script>
+    <script src="/assets/js/main.js?v=20261027-responsive" defer></script>
   </body>
 </html>

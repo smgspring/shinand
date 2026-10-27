@@ -165,23 +165,90 @@ const setupSteps = () => {
   }
 };
 
-// 동선 약도: 현재 동선 / 제안 배치 전환
-const setupFlow = () => {
-  const figure = document.querySelector("[data-flow]");
-  if (!figure) return;
-  const caption = figure.querySelector("[data-flow-caption]");
-  const captions = {
-    now: "주문대와 바가 6m 떨어져 있어, 한 번 오갈 때마다 손 씻기를 포함해 평균 31초가 걸립니다.",
-    plan: "주문 담당을 주문대에 고정하고 픽업대로 넘기면, 같은 2명으로 처리량이 늘어납니다."
+// 히어로 작업 알림: 맨 위 칩이 접혀 사라지고, 아래에서 새 작업이 올라옵니다.
+// 진행 중으로 들어온 작업은 잠시 뒤 완료로 바뀝니다.
+const HERO_TASKS = [
+  { label: "상권 분석 리포트", running: false },
+  { label: "메뉴 원가 설계", running: true },
+  { label: "오픈 체크리스트", running: false },
+  { label: "계절별 근무표 3종", running: true },
+  { label: "피크 메뉴 사전 준비", running: false },
+  { label: "발주 주기 세팅", running: true },
+  { label: "주간 매출 리포트", running: false },
+  { label: "레시피 매뉴얼 정리", running: true }
+];
+
+const setupHeroChips = () => {
+  const stack = document.querySelector("[data-chip-stack]");
+  if (!stack || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  const statusHtml = (running) => `<span class="chip-status${running ? " is-running" : ""}"><span>${running ? "진행 중" : "완료"}</span></span>`;
+  const makeChip = (task) => {
+    const wrap = document.createElement("div");
+    wrap.className = "chip-wrap";
+    wrap.innerHTML = `<div class="chip-pop"><div class="chip">${statusHtml(task.running)}<strong>${task.label}</strong></div></div>`;
+    return wrap;
   };
-  figure.querySelectorAll("[data-flow-view]").forEach((button) => {
-    button.addEventListener("click", () => {
-      const view = button.dataset.flowView;
-      figure.dataset.state = view;
-      figure.querySelectorAll("[data-flow-view]").forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
-      if (caption) caption.textContent = captions[view];
-    });
-  });
+
+  // 상태 글자를 굴려서 바꿉니다
+  const complete = (wrap) => {
+    const status = wrap.querySelector(".chip-status");
+    if (!status || !status.classList.contains("is-running")) return;
+    const old = status.firstElementChild;
+    const next = document.createElement("span");
+    next.textContent = "완료";
+    next.className = "is-in";
+    old.className = "is-out";
+    status.append(next);
+    status.classList.remove("is-running");
+    setTimeout(() => old.remove(), 700);
+  };
+
+  // 처음 세 칩은 차례로 떠오르게 다시 그립니다
+  stack.innerHTML = "";
+  let cursor = 0;
+  for (let i = 0; i < 3; i += 1) {
+    const wrap = makeChip(HERO_TASKS[cursor]);
+    wrap.style.animationDelay = `${0.5 + i * 0.16}s`;
+    wrap.firstElementChild.style.animationDelay = `${0.5 + i * 0.16}s`;
+    stack.append(wrap);
+    if (HERO_TASKS[cursor].running) setTimeout(() => complete(wrap), 2600 + i * 400);
+    cursor += 1;
+  }
+
+  const step = () => {
+    const first = stack.firstElementChild;
+    if (first) {
+      first.dataset.exiting = "";
+      setTimeout(() => first.remove(), 440);
+    }
+    const task = HERO_TASKS[cursor % HERO_TASKS.length];
+    cursor += 1;
+    const wrap = makeChip(task);
+    stack.append(wrap);
+    if (task.running) setTimeout(() => complete(wrap), 1500);
+  };
+
+  // 화면에 보이고 탭이 활성일 때만 돌립니다
+  let timer = null;
+  const play = () => {
+    if (!timer) timer = setInterval(step, 2600);
+  };
+  const pause = () => {
+    clearInterval(timer);
+    timer = null;
+  };
+  const hero = stack.closest(".hero");
+  let visible = true;
+  if ("IntersectionObserver" in window && hero) {
+    new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      if (visible && !document.hidden) play();
+      else pause();
+    }).observe(hero);
+  }
+  document.addEventListener("visibilitychange", () => (document.hidden || !visible ? pause() : play()));
+  if (!("IntersectionObserver" in window)) play();
 };
 
 const PLACES = [
@@ -237,19 +304,25 @@ const setupWordGrid = () => {
   };
   show(0);
 
+  let timer;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const start = () => {
+    clearInterval(timer);
+    if (!reduceMotion) timer = setInterval(() => show(active + 1), 2600);
+  };
+
+  // 마우스는 올리기만 해도, 터치는 눌러서 단어를 고릅니다
   spans.forEach((span, i) => {
-    span.addEventListener("mouseenter", () => {
-      if (owners[i] >= 0) show(owners[i]);
+    if (owners[i] < 0) return;
+    span.addEventListener("mouseenter", () => show(owners[i]));
+    span.addEventListener("click", () => {
+      show(owners[i]);
+      start();
     });
   });
 
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  let timer;
+  if (reduceMotion) return;
   const section = grid.closest("section");
-  const start = () => {
-    clearInterval(timer);
-    timer = setInterval(() => show(active + 1), 2600);
-  };
   if ("IntersectionObserver" in window && section) {
     new IntersectionObserver(([entry]) => (entry.isIntersecting ? start() : clearInterval(timer))).observe(section);
   }
@@ -307,9 +380,20 @@ const setupContactForm = () => {
   });
 };
 
+// 서비스 타일처럼 특정 항목을 가리키는 링크는 그 아코디언을 펼쳐 둡니다
+const setupDeepLinks = () => {
+  document.querySelectorAll("[data-open]").forEach((link) => {
+    link.addEventListener("click", () => {
+      const target = document.getElementById(link.dataset.open);
+      if (target) target.open = true;
+    });
+  });
+};
+
 setupHeader();
+setupDeepLinks();
 setupSteps();
-setupFlow();
+setupHeroChips();
 setupWordGrid();
 setupContactForm();
 loadNotices().catch((error) => {

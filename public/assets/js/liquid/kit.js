@@ -221,10 +221,18 @@ export const sparkleGeometry = (r = 1, { depth = r * 0.34, pinch = 0.12, samples
       index.push(a, b, d, a, d, c);
     }
   }
+  // 노멀은 표면에서 계산하지 않고 '부푼 베개'(타원체) 모양에서 가져옵니다.
+  // 꼭짓점에서 가운데로 이어지는 접힘선이 음영에 드러나지 않아 별 가운데 선이 생기지 않습니다.
+  const normals = [];
+  const a = r * 0.55;
+  for (let k = 0; k < positions.length; k += 3) {
+    const n = new THREE.Vector3(positions[k] / (a * a), positions[k + 1] / (a * a), positions[k + 2] / (depth * depth)).normalize();
+    normals.push(n.x, n.y, n.z);
+  }
   const geometry = new THREE.BufferGeometry();
   geometry.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
+  geometry.setAttribute("normal", new THREE.Float32BufferAttribute(normals, 3));
   geometry.setIndex(index);
-  geometry.computeVertexNormals();
   return geometry;
 };
 
